@@ -16,6 +16,9 @@ Run the Command:
 go run main.go
 ````
 `Enter the Value of Health, Strength and Attack for Player A and Player B.`
+
 `Health: Health of the Player.`
+
 `Strength: Defending Capabilty of the Player.`
+
 `Attack: Attacking Capabilty of the Player.`
