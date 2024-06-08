@@ -7,10 +7,6 @@ The Player with lower health attacks first. Attacker will roll a dice and attack
 After each turn both of the player's health will be determined. The player which reaches zero health first will be the loser of the game. Another one will be 'THE WINNER'!
 
 ## How to Run the Game
-Navigate to the project directory:
-```
-cd MagicalArena
-```
 Run the Command: 
 ```
 go run main.go
