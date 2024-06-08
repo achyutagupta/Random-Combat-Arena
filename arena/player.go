@@ -56,7 +56,7 @@ func (p *Player) IsAlive() bool {
 }
 
 // Returns max of two integer values.
-func max(a, b int) int {
+func Max(a, b int) int {
 	if a > b {
 		return a
 	}

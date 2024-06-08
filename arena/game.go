@@ -34,15 +34,15 @@ func (g *Game) Start() {
 
 // PlayTurn executes a single turn in the game where each player attacks once.
 func (g *Game) PlayTurn() {
-	attacker, defender := g.determineFirstAttacker()
-	g.attack(attacker, defender)
+	attacker, defender := g.DetermineFirstAttacker()
+	g.Attack(attacker, defender)
 	if defender.IsAlive() {
-		g.attack(defender, attacker)
+		g.Attack(defender, attacker)
 	}
 }
 
 // Determines which player attacks first based on their health.
-func (g *Game) determineFirstAttacker() (*Player, *Player) {
+func (g *Game) DetermineFirstAttacker() (*Player, *Player) {
 	if g.PlayerA.Health < g.PlayerB.Health {
 		return g.PlayerA, g.PlayerB
 	}
@@ -51,14 +51,14 @@ func (g *Game) determineFirstAttacker() (*Player, *Player) {
 
 
 // Simulates an attack from the attacker to the defender.
-func (g *Game) attack(attacker, defender *Player) {
+func (g *Game) Attack(attacker, defender *Player) {
 	attackRoll := g.Die.Roll()
 	defendRoll := g.Die.Roll()
 
 	attackDamage := attacker.Attack * attackRoll
 	defendDamage := defender.Strength * defendRoll
 
-	actualDamage := max(0, attackDamage-defendDamage)
+	actualDamage := Max(0, attackDamage-defendDamage)
 	defender.ReduceHealth(actualDamage)
 
 	fmt.Printf("%s attacks %s for %d damage (Attack Damage %d - Defended Damage %d). %s's health is now %d\n",
